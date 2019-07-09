@@ -11,7 +11,7 @@ const User = require('../models/user')
 router.post('/login', function(req, res) {
 	User.findOne({
 		where:{
-			personnel_phone:req.body.phone
+			personnel_phone:req.body.phone.trim()
 		}
 	}).then((user)=>{
 		//check if the user was found

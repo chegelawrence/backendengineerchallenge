@@ -15,6 +15,12 @@ app.use(express.json());
 
 //passport middleware configuration
 app.use(passport.initialize())
+//allow CORS policy
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 //authenticate to the database and
 //continue
